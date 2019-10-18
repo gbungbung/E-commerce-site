@@ -1,9 +1,40 @@
-<html>
-<head><title></title></head>
-
-<body>
-
-{{ content }}
-
-</body>
-</html>
+﻿{% extends 'products/base.html' %}
+{% load static %}
+{% block content %}
+    <div id="all">
+      <div id="content">
+        <div id="hot">
+          <div class="container">
+            <div class="product-slider owl-carousel owl-theme">
+              {% for product in products %}
+              <div class="item">
+                <div class="product">
+                  <div class="flip-container">
+                    <div class="flipper">
+                      <div class="front"><a href="detail.html"><img src="{{ product.img.url }}" alt="" class="img-fluid"></a></div>
+                      <div class="back"><a href="detail.html"><img src="{{ product.img.url }}" alt="" class="img-fluid"></a></div>
+                    </div>
+                  </div><a href="detail.html" class="invisible"><img src="{{ product.img.url }}" alt="" class="img-fluid"></a>
+                  <div class="text">
+                    <h3><a href="{{ product.get_absolute_url }}">{{ product.description }}</a></h3>
+                    <p class="price"> 
+                      <del></del>${{ product.price }}
+                    </p>
+                  </div>
+                  <div class="ribbon sale">
+                    <div class="theribbon">SALE</div>
+                    <div class="ribbon-background"></div>
+                  </div>
+                  <div class="ribbon new">
+                    <div class="theribbon">NEW</div>
+                    <div class="ribbon-background"></div>
+                  </div>
+                </div>
+              </div>
+                {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock content %}

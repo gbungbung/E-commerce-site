@@ -14,7 +14,8 @@ ALLOWED_HOSTS = []
 
 # Application references
 INSTALLED_APPS = [
-    # Add your apps here to enable them
+    'products',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -89,5 +90,5 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
 STATIC_ROOT = posixpath.join(*(BASE_DIR.split(os.path.sep) + ['static']))
-STATIC_URL = '/media/'
-STATIC_ROOT = posixpath.join(*(BASE_DIR.split(os.path.sep) + ['media']))
+MEDIA_URL = '/media/'
+MEDIA_ROOT = posixpath.join(*(BASE_DIR.split(os.path.sep) + ['media']))
